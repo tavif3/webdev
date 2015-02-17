@@ -1,0 +1,18 @@
+<div class="col-md-4" ng-repeat="product in products | filter:productName | filter:categoryFilter">
+	<a ng-href="#/product/{{product.id}}">
+		<div class="well">
+			<h4>{{product.name}}</h4>
+		
+			<label>
+				Price: 
+			</label>
+			{{ product.price }} DKK. </br>
+
+			<label>
+				Description:
+			</label>
+			<img src=" {{ product.image }}">
+
+		</div>
+	</a>
+</div>

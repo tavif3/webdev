@@ -1,4 +1,10 @@
-<div class="col-md-4" ng-repeat="product in products | filter:productName | filter:categoryFilter">
+<div class="well">
+	<label ng-repeat="category in categories" class="checkbox-inline">
+		<input type="checkbox" ng-click="categoryChange(category.category)"> {{category.category}}
+	</label> 	
+</div>
+
+<div class="col-md-3" ng-repeat="product in products | filter:productFilter | filter:productName">
 	<a ng-href="#/product/{{product.id}}">
 		<div class="well">
 			<h4>{{product.name}}</h4>

@@ -12,6 +12,7 @@
 
         .run(function($rootScope){
             $rootScope.cartProducts = {};
+            $rootScope.cartTotal = 0;
         })
 
         .config(function($routeProvider){

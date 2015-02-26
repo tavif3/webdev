@@ -24,7 +24,7 @@
             <th>Product</th>
             <th>Price</th>
             <th>Quantity</th>
-            <th>Total Price</th>
+            <th>Price per Product</th>
             <th>Option</th>
 
         </tr>
@@ -34,22 +34,27 @@
         <tr ng-repeat="cartProduct in cartProducts">
             <td>{{cartProduct.product.name}}</td>
             <td>{{cartProduct.product.price}} DKK</td>
-            <td>
-                <span ng-hide="editMode">{{cartProduct.quantity}}</span>
-                <input type="number" ng-show="editMode" ng-model="quantity" />
+            <td ng-model="quantity">
+            {{cartProduct.quantity}}
+            <button class="btn btn-success pull-right" ng-click="increaseQuantity(cartProduct.product)">+</button>
+            <button class="btn btn-danger pull-right" ng-click="decreaseQuantity(cartProduct.product)">-</button>
             </td>
-            <td>{{cartProduct.quantity * cartProduct.product.price }} DKK</td>
+            <td>{{cartProduct.total }} DKK</td>
             <td>
-                <span> <button type="submit" class=' btn btn-warning' ng-hide="editMode" ng-click="editMode = true; editItem(cartProduct)" >Change Quantity</button></span>
-                <span> <button type="submit" class=' btn btn-success' ng-show="editMode" ng-click="editMode = false">Save</button></span>
-                <span>  <button class=' btn btn-danger' value="Delete" ng-click="removeItem(cartProduct)"> Delete </button>
+            <span>  <button class=' btn btn-danger' value="Delete" ng-click="removeItem(cartProduct)"> Delete </button>
             </span>
             </td>
         </tr>
 
         </tbody>
-
         <tfoot>
+            <tr>
+            <td><strong>Total Price</strong></td>
+            <td></td>
+            <td></td>
+            <td><strong>{{cartTotal}} DKK</strong></td>
+            <td></td>
+            </tr>
         </tfoot>
     </table>
 	</div>

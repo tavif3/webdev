@@ -11,10 +11,13 @@
     	cartService.removeItem(cartProduct);
     }
 
-    $scope.editItem = function(cartProduct){
-    	cartService.editItem(cartProduct);
+    $scope.increaseQuantity = function(product){
+    cartService.increaseQuantity(product);
     }
 
+    $scope.decreaseQuantity = function(product){
+        cartService.decreaseQuantity(product);
+    }
 }
 
 

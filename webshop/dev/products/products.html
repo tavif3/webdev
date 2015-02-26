@@ -1,0 +1,29 @@
+<div class="well">
+	<label ng-repeat="category in categories" class="checkbox-inline">
+		<input type="checkbox" ng-click="categoryChange(category.category)"> {{category.category}}
+	</label> 	
+</div>
+
+<div class="col-md-3" ng-repeat="product in products | filter:productFilter | filter:productName">
+	<a ng-href="#/product/{{product.id}}">
+
+		<div class="well">
+			<h4>{{product.name}}</h4>
+	</a>
+		<form ng-submit="addToCart(product)">
+
+			<label>Price: </label>
+			{{ product.price }} DKK. </br>
+
+			<label>Description:</label>
+			<img src=" {{ product.image }}">
+			<br>
+
+			<label>Quantity</label>
+			<input type="number" class="form-control" min="1" max="100" ng-model="quantity"/><br>
+
+			<button type="submit" class="btn btn-success">Add to cart</button>
+		</form>
+
+		</div>
+</div>

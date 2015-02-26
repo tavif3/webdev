@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html ng-app="Main">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>Household Products Webshop</title>
+	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+		<h1>Products of the Future</h1>
+		<input class="well" type="search" placeholder="Search products" ng-model="productName" />
+
+
+	<div ng-controller="cartController" class="well">
+
+    <h3>Cart</h3>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+            <th>Option</th>
+
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr ng-repeat="cartProduct in cartProducts">
+            <td>{{cartProduct.product.name}}</td>
+            <td>{{cartProduct.product.price}} DKK</td>
+            <td>
+                <span ng-hide="editMode">{{cartProduct.quantity}}</span>
+                <input type="number" ng-show="editMode" ng-model="quantity" />
+            </td>
+            <td>{{cartProduct.quantity * cartProduct.product.price }} DKK</td>
+            <td>
+                <span> <button type="submit" class=' btn btn-warning' ng-hide="editMode" ng-click="editMode = true; editItem(cartProduct)" >Change Quantity</button></span>
+                <span> <button type="submit" class=' btn btn-success' ng-show="editMode" ng-click="editMode = false">Save</button></span>
+                <span>  <button class=' btn btn-danger' value="Delete" ng-click="removeItem(cartProduct)"> Delete </button>
+            </span>
+            </td>
+        </tr>
+
+        </tbody>
+
+        <tfoot>
+        </tfoot>
+    </table>
+	</div>
+
+
+		<div ng-view>
+		</div>
+		
+</div>
+	
+	<script src="node_modules/angular/angular.min.js"></script>
+	<script src="node_modules/angular-route/angular-route.min.js"></script>
+	<script src="app.module.js"></script>
+	<script src="cart/cart.service.js"></script>
+	<script src="products/products.service.js"></script>
+	<script src="cart/cart.controller.js"></script>
+	<script src="products/products.controller.js"></script>
+	<script src="products/product.controller.js"></script>
+</body>
+</html>

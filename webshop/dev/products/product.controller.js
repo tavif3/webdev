@@ -12,6 +12,7 @@
 
 		productsService.getProduct($routeParams.id)
 			.then(modelProduct);
+
 	}
 
 }());

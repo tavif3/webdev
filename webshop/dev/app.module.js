@@ -21,11 +21,15 @@
         			templateUrl: './products/product.html',
         			controller: 'productController'
         		})
-                .when("/cart", {
+                .when('/cart', {
                 templateUrl: './cart/cart.html',
                 controller: 'cartController'
                 })
-        		.when("/", {
+                .when('/checkout',{
+                templateUrl: './checkout/checkout.html',
+                controller: 'cartController'
+                })
+        		.when('/', {
         			templateUrl: './products/products.html',
         			controller: 'productsController'
         		})

@@ -1,4 +1,10 @@
+<div>
+<input class="well" type="search" placeholder="Search products" ng-model="productName" />
+</div>
+
 <div class="well">
+    <a ng-href="#/cart"><button class=' btn btn-success pull-right' value="Cart"> Go to Cart </button></a>
+
 	<label ng-repeat="category in categories" class="checkbox-inline">
 		<input type="checkbox" ng-click="categoryChange(category.category)"> {{category.category}}
 	</label> 	

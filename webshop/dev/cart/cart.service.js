@@ -49,9 +49,16 @@
         }
 
 
-        var removeItem = function (cartProduct){
+        /*var removeItem = function (cartProduct){
             delete $rootScope.cartProducts[cartProduct.product.name];
             $rootScope.cartTotal = 0;
+        }*/
+
+        var removeItem = function(product){
+        var cartProduct = $rootScope.cartProducts[product.name];
+        var cartProductTotal = cartProduct.product.price * cartProduct.quantity;
+        calcCartTotal(cartProductTotal * -1);
+        delete $rootScope.cartProducts[product.name];
         }
 
         return {

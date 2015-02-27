@@ -7,17 +7,21 @@
 
     function cartController($scope, cartService) {
 
-    $scope.removeItem = function(cartProduct){
-    	cartService.removeItem(cartProduct);
-    }
+        /*$scope.removeItem = function(cartProduct){
+        	cartService.removeItem(cartProduct);
+        }*/
 
-    $scope.increaseQuantity = function(product){
-    cartService.increaseQuantity(product);
-    }
+        $scope.removeItem = function(product){
+        cartService.removeItem(product);
+        }
 
-    $scope.decreaseQuantity = function(product){
-        cartService.decreaseQuantity(product);
-    }
+        $scope.increaseQuantity = function(product){
+        cartService.increaseQuantity(product);
+        }
+
+        $scope.decreaseQuantity = function(product){
+            cartService.decreaseQuantity(product);
+        }
 }
 
 

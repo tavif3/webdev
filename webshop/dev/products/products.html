@@ -1,11 +1,15 @@
 <h1>Products of the Future</h1>
-
+<a ng-href="admin.html"><button class=' btn btn-info pull-right' value="Admin Panel">Admin</button></a>
 <div>
 <input class="well" type="search" placeholder="Search products" ng-model="productName" />
 </div>
 
 <div class="well">
     <a ng-href="#/cart"><button class=' btn btn-success pull-right' value="Cart"> Go to Cart >>> </button></a>
+
+
+    <a  href="" style="text-decoration: none" >
+        <h3><span class="label label-success"></span></h3></a>
 
 	<label ng-repeat="category in categories" class="checkbox-inline">
 		<input type="checkbox" ng-click="categoryChange(category.category)"> {{category.category}}
@@ -23,10 +27,15 @@
 			<label>Price: </label>
 			{{ product.price }} DKK. </br>
 
+			<label>Category: </label>
+			{{ product.category }} </br>
+
 			<label>Description:</label>
-			<img src=" {{ product.image }}">
+			{{ product.description }}
 			<br>
 
+			<label>Image</label></br>
+			<img src="{{ product.image }}"></br>
 			<label>Quantity</label>
 			<input type="number" class="form-control" min="1" max="100" ng-model="quantity"/><br>
 

@@ -6,14 +6,14 @@
 			products = [];
 		
 		var getProducts = function(){
-			return $http.get("data/products.json")
+			return $http.get("products")
 						.then(function(response){
 							return response.data;
 						})
 		};
 
 		var getProduct = function(id){
-			return $http.get("data/products.json")
+			return $http.get("products")
 						.then(function(response){
 							return findProductInArray(response.data, id);
 						})
@@ -29,7 +29,7 @@
 		}
 		
 		var getCategories = function(){
-			return $http.get("data/categories.json")
+			return $http.get("categories")
 						.then(function(response){
 							return response.data;
 						})

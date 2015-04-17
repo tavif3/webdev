@@ -39,7 +39,8 @@
         }
 
         var calcCartTotal = function(amount){
-            $rootScope.cartTotal += amount;
+            console.log(typeof amount);
+            $rootScope.cartTotal += parseInt(amount);
         }
 
         var calcProductTotal = function(product, quantity){
